@@ -1,0 +1,46 @@
+{
+  "name": "node-red-contrib-numbertoascii",
+  "version": "1.0.0",
+  "description": "A Node-RED node to convert 16-bit, 32-bit, 64-bit, or 128-bit numbers into ASCII strings with endianness support.",
+  "keywords": [
+    "node-red",
+    "bufferstack10",
+    "ascii",
+    "modbus",
+    "register",
+    "binary",
+    "endian",
+    "16bit",
+    "32bit",
+    "64bit",
+    "128bit",
+    "string",
+    "converter",
+    "plc",
+    "automation",
+    "mqtt",
+    "number"
+  ],
+  "license": "GPL-3.0",
+  "author": {
+    "name": "Harshad Joshi",
+    "email": "harshad@bufferstack.io",
+    "url": "https://github.com/hj91"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/hj91/node-red-contrib-numbertoascii.git"
+  },
+  "dependencies": {
+  },
+  "node-red": {
+    "nodes": {
+      "numbertoascii": "numbertoascii.js"
+    }
+  },
+  "bugs": {
+    "url": "https://github.com/hj91/node-red-contrib-numbertoascii/issues"
+  },
+  "homepage": "https://github.com/hj91/node-red-contrib-numbertoascii#readme"
+}
+
