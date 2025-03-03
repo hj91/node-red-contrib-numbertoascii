@@ -1,0 +1,137 @@
+[
+    {
+        "id": "e797eeef8d28dad4",
+        "type": "tab",
+        "label": "Number to Ascii",
+        "disabled": false,
+        "info": "",
+        "env": []
+    },
+    {
+        "id": "ed7dc7359085c56d",
+        "type": "function",
+        "z": "e797eeef8d28dad4",
+        "name": "Convert it to String",
+        "func": "// Not needed, but we should ensure explicit conversion to string in production systems\n\nvar a = String(msg.payload)\n\nmsg.payload = a;\n\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 410,
+        "y": 120,
+        "wires": [
+            [
+                "3913c5452935a5d4"
+            ]
+        ]
+    },
+    {
+        "id": "3913c5452935a5d4",
+        "type": "numbertoascii",
+        "z": "e797eeef8d28dad4",
+        "name": "Number to ASCII",
+        "endian": "little",
+        "bitSize": "64",
+        "x": 630,
+        "y": 120,
+        "wires": [
+            [
+                "db443bf287a3fa68",
+                "d5190843d749dd17"
+            ]
+        ]
+    },
+    {
+        "id": "db443bf287a3fa68",
+        "type": "debug",
+        "z": "e797eeef8d28dad4",
+        "name": "Process",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": true,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "payload",
+        "statusType": "auto",
+        "x": 880,
+        "y": 120,
+        "wires": []
+    },
+    {
+        "id": "d5190843d749dd17",
+        "type": "function",
+        "z": "e797eeef8d28dad4",
+        "name": "Convert it to ASCII",
+        "func": "var a = String(msg.payload.asciiString)\n\nmsg.payload = a;\n\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 690,
+        "y": 280,
+        "wires": [
+            [
+                "6822eaf90deeb3b3"
+            ]
+        ]
+    },
+    {
+        "id": "6822eaf90deeb3b3",
+        "type": "debug",
+        "z": "e797eeef8d28dad4",
+        "name": "ASCII Value",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": true,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "payload",
+        "statusType": "auto",
+        "x": 970,
+        "y": 280,
+        "wires": []
+    },
+    {
+        "id": "d33c9e24e421eba6",
+        "type": "inject",
+        "z": "e797eeef8d28dad4",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "1201111036566676869101102103104858978",
+        "payloadType": "str",
+        "x": 190,
+        "y": 120,
+        "wires": [
+            [
+                "ed7dc7359085c56d"
+            ]
+        ]
+    },
+    {
+        "id": "26a1b94fb6bf30ab",
+        "type": "comment",
+        "z": "e797eeef8d28dad4",
+        "name": "Number to ASCII",
+        "info": "This node was written for Bufferstack.IO Universal OPCUA Server (V2 release).\n\nThe output of PLC is not in string datatype so the server pushes 32bit/64bit number which is then converted to a string and processed further",
+        "x": 140,
+        "y": 60,
+        "wires": []
+    }
+]
