@@ -1,0 +1,72 @@
+<!--
+numbertoascii.html - Copyright 2025 Harshad Joshi and Bufferstack.IO Analytics Technology LLP, Pune.
+
+Licensed under the GNU General Public License, Version 3.0 (the "License");
+you may not use this file except in compliance with the License.
+You may obtain a copy of the License at
+
+    https://www.gnu.org/licenses/gpl-3.0.html
+
+Unless required by applicable law or agreed to in writing, software
+distributed under the License is distributed on an "AS IS" BASIS,
+WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+See the License for the specific language governing permissions and limitations under the License.
+-->
+
+
+<script type="text/javascript">
+    RED.nodes.registerType("numbertoascii", {
+        category: "BufferStack10",
+        color: "#FFA500", // Orange color for better visibility
+        defaults: {
+            name: { value: "" }
+        },
+        inputs: 1,
+        outputs: 1,
+        icon: "font-awesome/fa-font", // Icon related to text conversion
+        label: function () {
+            return this.name || "Number to ASCII";
+        }
+    });
+</script>
+
+<script type="text/html" data-template-name="numbertoascii">
+    <div class="form-row">
+        <label for="node-input-name"><i class="fa fa-tag"></i> Name</label>
+        <input type="text" id="node-input-name" placeholder="Node Name">
+    </div>
+</script>
+
+<script type="text/html" data-help-name="numbertoascii">
+    <p>This node converts a numeric input (representing ASCII codes) into both:</p>
+    <ul>
+        <li><b>ASCII Array:</b> Extracted ASCII character codes.</li>
+        <li><b>ASCII String:</b> The final human-readable text.</li>
+    </ul>
+
+    <h3>Inputs</h3>
+    <ul>
+        <li><b>payload</b> (number/string) - The numeric input representing ASCII character codes.</li>
+    </ul>
+
+    <h3>Outputs</h3>
+    <ul>
+        <li><b>payload.asciiArray</b> (array) - The extracted ASCII codes.</li>
+        <li><b>payload.asciiString</b> (string) - The corresponding ASCII text.</li>
+    </ul>
+
+    <h3>Example Usage</h3>
+    <p>If the input is <code>6566676869</code>, the output will be:</p>
+    <pre>{
+    "asciiArray": [65, 66, 67, 68, 69],
+    "asciiString": "ABCDE"
+}</pre>
+
+    <h3>Notes</h3>
+    <ul>
+        <li>The node processes input as a numeric string, extracting valid ASCII characters.</li>
+        <li>It prioritizes 3-digit ASCII codes (if valid), then falls back to 2-digit ones.</li>
+        <li>If an invalid sequence is encountered, an error is returned.</li>
+    </ul>
+</script>
+
